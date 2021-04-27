@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "imageTemplateName": {
@@ -60,14 +60,14 @@
                         "name": "installFsLogix",
                         "runElevated": true,
                         "runAsSystem": true,
-                        "scriptUri": "https://gist.githubusercontent.com/RikMerkens/cf4942f1309df219239fa51786fecd6b/raw/346c0ec338cacfa193e35d17d3c927fdb26b745d/installfslogix.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/installfslogix.ps1"
                     },
                     {
                         "type": "PowerShell",
                         "name": "OptimizeOS",
                         "runElevated": true,
                         "runAsSystem": true,
-                        "scriptUri": "https://gist.githubusercontent.com/RikMerkens/9eda789541c340102fb9d780519377bb/raw/bb0438db44649ada12c343dfefa429da1877175f/optimizewvd.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/optimizewvd.ps1"
                     },
                     {
                         "type": "WindowsRestart",

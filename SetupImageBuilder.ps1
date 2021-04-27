@@ -2,7 +2,7 @@ $sigGalleryName= "ScoreUticaImages"
 $imageDefName ="Windows10WVD-2009"
 $imageResourceGroup="VMImages" # destination image resource group
 $location="westeurope" # location (see possible locations in main docs: https://docs.microsoft.com/en-us/azure/virtual-machines/image-builder-overview#regions)
-$imageTemplateName="Windows10VirtualDesktop27-04-2021" # image template name
+$imageTemplateName="Windows10VirtualDesktop27-04-2021v2" # image template name
 
 
 $templateFilePath = "armTemplateWVD.json"
