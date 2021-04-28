@@ -5,17 +5,18 @@
  New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
  $LocalPath = $drive + '\' + $appName 
  set-Location $LocalPath
- $osOptURL = 'https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/archive/refs/heads/main.zip'
- $osOptURLexe = 'Windows_10_VDI_Optimize-master.zip'
+ $osOptURL = 'https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/archive/main.zip'
+ $osOptURLexe = 'Virtual-Desktop-Optimization-Tool-main.zip'
  $outputPath = $LocalPath + '\' + $osOptURLexe
  Invoke-WebRequest -Uri $osOptURL -OutFile $outputPath
  write-host 'AIB Customization: Starting OS Optimizations script'
- Expand-Archive -LiteralPath 'C:\\Optimize\\Windows_10_VDI_Optimize-master.zip' -DestinationPath $Localpath -Force -Verbose
+ Expand-Archive -LiteralPath 'C:\\Optimize\\Virtual-Desktop-Optimization-Tool-main.zip' -DestinationPath $Localpath -Force -Verbose
  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose
- Set-Location -Path C:\\Optimize\\Virtual-Desktop-Optimization-Tool-master
+ Set-Location -Path C:\\Optimize\\Virtual-Desktop-Optimization-Tool-main
  
+
  # instrumentation
- $osOptURL = 'https://raw.githubusercontent.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/master/Win10_VirtualDesktop_Optimize.ps1'
+ $osOptURL = 'https://raw.githubusercontent.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/main/Win10_VirtualDesktop_Optimize.ps1'
  $osOptURLexe = 'optimize.ps1'
  Invoke-WebRequest -Uri $osOptURL -OutFile $osOptURLexe
  
