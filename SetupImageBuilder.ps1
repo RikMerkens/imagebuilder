@@ -1,25 +1,13 @@
-$sigGalleryName= "ScoreUticaImages"
-$imageDefName ="Windows10WVD-2009"
-$imageResourceGroup="VMImages" # destination image resource group
+$sigGalleryName= "Score_Utica_Image_Gallery"
+$imageDefName ="Windows10AVDMultiuser"
+$imageResourceGroup="AVD-ImagebuilderImages" # destination image resource group
 $location="westeurope" # location (see possible locations in main docs: https://docs.microsoft.com/en-us/azure/virtual-machines/image-builder-overview#regions)
-$imageTemplateName="Windows10VirtualDesktop27-04-2021v2" # image template name
+$imageTemplateName="Windows10VirtualDesktop" # image template name
 
 
 $templateFilePath = "armTemplateWVD.json"
 $runOutputName="sigOutput" # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 
-# Register for Azure Image Builder Feature
-# Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
-# check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
-# Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
-# Get-AzResourceProvider -ProviderNamespace Microsoft.Storage
-# Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
-# Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 # # Step 1: Import module
 # Import-Module Az.Accounts
@@ -60,8 +48,6 @@ New-AzRoleDefinition -InputFile ./aibRoleImageCreation.json
 # grant role definition to image builder service principal
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
-# create gallery
-New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
 
 # create gallery definition
 New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'ScoreUtica' -Offer 'Windows' -Sku 'WVD'

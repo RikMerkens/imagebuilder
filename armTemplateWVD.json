@@ -31,7 +31,7 @@
             "identity": {
                 "type": "UserAssigned",
                         "userAssignedIdentities": {
-                        "/subscriptions/af110be4-53c3-4228-8760-edb81ef20996/resourcegroups/VMImages/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aibIdentity1619548748": {}
+                        "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourcegroups/AVD-ImagebuilderImages/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aibIdentity1619548748": {}
                             
                     }
                     },
@@ -53,16 +53,8 @@
                     "version": "latest"
             },
             "customize": [
-
         
-                    {
-                        "type": "PowerShell",
-                        "name": "installFsLogix",
-                        "runElevated": true,
-                        "runAsSystem": true,
-                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/installfslogix.ps1"
-                    },
-                    {
+                   {
                         "type": "PowerShell",
                         "name": "OptimizeOS",
                         "runElevated": true,
@@ -70,16 +62,16 @@
                         "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/optimizewvd.ps1"
                     },
                     {
+                        "type": "PowerShell",
+                        "name": "CustomSettings",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/customsettings.ps1"
+                    },
+                    {
                         "type": "WindowsRestart",
                         "restartCheckCommand": "write-host 'restarting post Optimizations'",
                         "restartTimeout": "5m"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "Install Teams",
-                        "runElevated": true,
-                        "runAsSystem": true,
-                        "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/2_installTeams.ps1"
                     },
                     {
                         "type": "WindowsUpdate",
@@ -110,7 +102,7 @@
             [
                 {   
                     "type": "SharedImage",
-                    "galleryImageId": "/subscriptions/af110be4-53c3-4228-8760-edb81ef20996/resourceGroups/VMImages/providers/Microsoft.Compute/galleries/ScoreUticaImages/images/Windows10WVD-2009",
+                    "galleryImageId": "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourceGroups/WVD-Master/providers/Microsoft.Compute/galleries/Score_Utica_Image_Gallery/images/Windows10AVDMultisession",
                     "runOutputName": "sigOutput",
                     "artifactTags": {
                         "source": "wvd10",

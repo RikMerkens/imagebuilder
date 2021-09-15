@@ -1,0 +1,2 @@
+#Istall NL taalpakket TEST https://4sysops.com/archives/local-experience-packs-add-languages-to-windows-10-and-server-2019
+Add-AppxProvisionedPackage -Online -PackagePath .\LanguageExperiencePack.nl-NL.Neutral.appx `-LicensePath .\License.xml
