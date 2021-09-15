@@ -1,4 +1,4 @@
-$sigGalleryName= "Score_Utica_Image_Gallery"
+$sigGalleryName= "testSIG"
 $imageDefName ="Windows10AVDMultiuser"
 $imageResourceGroup="AVD-ImagebuilderImages" # destination image resource group
 $location="westeurope" # location (see possible locations in main docs: https://docs.microsoft.com/en-us/azure/virtual-machines/image-builder-overview#regions)
@@ -10,7 +10,8 @@ $runOutputName="sigOutput" # distribution properties object name (runOutput), i.
 
 
 # # Step 1: Import module
-# Import-Module Az.Accounts
+Import-Module Az.Accounts
+Import-Module Az.ManagedServiceIdentity
 
 # # Step 2: get existing context
 # $currentAzContext = Get-AzContext
@@ -23,7 +24,7 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
-$imageRoleDefName="Azure Image Builder Image Def"+$timeInt
+$imageRoleDefName="Azure Image Builder Image Def1619383055"
 $idenityName="aibIdentity"+$timeInt
 
 # ## Add AZ PS modules to support AzUserAssignedIdentity and Az AIB
@@ -45,9 +46,13 @@ $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 # create role definition
 New-AzRoleDefinition -InputFile ./aibRoleImageCreation.json
 
-# grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+$role = Get-AzRoleDefinition -Name "AIB"
 
+# grant role definition to image builder service principal
+New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $role.Name -Scope "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourceGroups/WVD-Master"
+
+
+New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
 
 # create gallery definition
 New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'ScoreUtica' -Offer 'Windows' -Sku 'WVD'
