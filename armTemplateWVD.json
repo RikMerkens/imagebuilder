@@ -48,8 +48,8 @@
             "source": {
                 "type": "PlatformImage",
                     "publisher": "MicrosoftWindowsDesktop",
-                    "offer": "office-365",
-                    "sku": "20h2-evd-o365pp",
+                    "offer": "Windows-10",
+                    "sku": "21h1-evd",
                     "version": "latest"
             },
             "customize": [
@@ -67,6 +67,34 @@
                         "runElevated": true,
                         "runAsSystem": true,
                         "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/customsettings.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "Install Chocolaty",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/Installchocolatey.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallImageGlass",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallImageGlass.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallNLLanguage",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallNLLanguage.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallProjectAndVisio",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallProjectAndVisio.ps1"
                     },
                     {
                         "type": "WindowsRestart",

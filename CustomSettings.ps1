@@ -8,3 +8,6 @@ $Shortcut.TargetPath = "C:\windows\System32\logoff.exe"
 $Shortcut.IconLocation = "$IconLocation, $IconArrayIndex"
 $Shortcut.Save()
 
+## Create Temp folder
+New-Item -ItemType Directory -Path C:\Temp
+New-Item -ItemType Directory -Path C:\Temp\Install
