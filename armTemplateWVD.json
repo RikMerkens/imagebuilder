@@ -31,7 +31,7 @@
             "identity": {
                 "type": "UserAssigned",
                         "userAssignedIdentities": {
-                        "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourcegroups/AVD-ImagebuilderImages/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aibIdentity1619548748": {}
+                        "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourcegroups/AVD-ImagebuilderImages/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aibIdentity1631708849": {}
                             
                     }
                     },
@@ -66,7 +66,7 @@
                         "name": "CustomSettings",
                         "runElevated": true,
                         "runAsSystem": true,
-                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/customsettings.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/CustomSettings.ps1"
                     },
                     {
                         "type": "PowerShell",
@@ -130,7 +130,8 @@
             [
                 {   
                     "type": "SharedImage",
-                    "galleryImageId": "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourceGroups/WVD-Master/providers/Microsoft.Compute/galleries/Score_Utica_Image_Gallery/images/Windows10AVDMultisession",
+                    "galleryImageId": "/subscriptions/675d04a1-6ccc-44c4-b679-df78c08d8e96/resourceGroups/AVD-ImagebuilderImages/providers/Microsoft.Compute/galleries/testSIG/images/Windows10AVDMultiuser",
+                                    
                     "runOutputName": "sigOutput",
                     "artifactTags": {
                         "source": "wvd10",
