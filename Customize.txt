@@ -1,0 +1,40 @@
+                                        {
+                        "type": "WindowsRestart",
+                        "restartCheckCommand": "write-host 'restarting post Optimizations'",
+                        "restartTimeout": "5m"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "CustomSettings",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/CustomSettings.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "Install Chocolaty",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/Installchocolatey.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallImageGlass",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallImageGlass.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallNLLanguage",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallNLLanguage.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallProjectAndVisio",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallProjectAndVisio.ps1"
+                    },

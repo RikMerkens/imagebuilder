@@ -52,15 +52,8 @@
                     "sku": "21h1-evd",
                     "version": "latest"
             },
-            "customize": [
-        
-                   {
-                        "type": "PowerShell",
-                        "name": "OptimizeOS",
-                        "runElevated": true,
-                        "runAsSystem": true,
-                        "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/optimizewvd.ps1"
-                    },
+            "customize": [ 
+
                     {
                         "type": "PowerShell",
                         "name": "CustomSettings",
@@ -96,11 +89,7 @@
                         "runAsSystem": true,
                         "scriptUri": "https://raw.githubusercontent.com/RikMerkens/imagebuilder/master/InstallProjectAndVisio.ps1"
                     },
-                    {
-                        "type": "WindowsRestart",
-                        "restartCheckCommand": "write-host 'restarting post Optimizations'",
-                        "restartTimeout": "5m"
-                    },
+
                     {
                         "type": "WindowsUpdate",
                         "searchCriteria": "IsInstalled=0",
